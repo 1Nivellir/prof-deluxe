@@ -1,0 +1,11 @@
+<svg width="64.000000" height="46.000000" viewBox="0 0 64 46" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<desc>
+			Created with Pixso.
+	</desc>
+	<defs/>
+	<rect id="Rectangle 79" x="12.000000" y="12.000000" width="40.000000" height="2.000000" fill="#AB9273" fill-opacity="1.000000"/>
+	<rect id="Rectangle 80" x="12.000000" y="22.000000" width="40.000000" height="2.000000" fill="#AB9273" fill-opacity="1.000000"/>
+	<rect id="Rectangle 81" x="12.000000" y="32.000000" width="40.000000" height="2.000000" fill="#AB9273" fill-opacity="1.000000"/>
+	<path id="Левый верхний угол" d="M1 12L1 1L12 1" stroke="#AB9273" stroke-opacity="1.000000" stroke-width="2.000000"/>
+	<path id="Левый верхний угол" d="M63 34L63 45L52 45" stroke="#AB9273" stroke-opacity="1.000000" stroke-width="2.000000"/>
+</svg>
