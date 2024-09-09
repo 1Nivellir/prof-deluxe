@@ -27,7 +27,6 @@ const parseText = (text: string) => {
 
 	Array.from(doc.body.childNodes).forEach((node) => {
 		if (node.nodeType === Node.ELEMENT_NODE && node instanceof HTMLElement) {
-			console.log(node.tagName)
 			if (node.tagName.toLowerCase() === 'h3') {
 				node.style.color = '#fff'
 				node.style.marginBottom = '30px'
@@ -48,7 +47,7 @@ const parseText = (text: string) => {
 				fontStyle: 'normal',
 				fontWeight: ' 300',
 				lineHeight: '110%',
-				marginBottom: '60px',
+				marginBottom: '20px',
 				display: 'block',
 			})
 			container.appendChild(span)

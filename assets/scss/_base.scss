@@ -2,6 +2,7 @@ body {
 	position: relative;
 	font-family: 'Akrobat', sans-serif;
 	background: var(--c-bg);
+	overflow-y: scroll;
 }
 
 * {
