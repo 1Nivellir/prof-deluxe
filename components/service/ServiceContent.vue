@@ -78,6 +78,11 @@ h3 {
 		padding: 40px;
 		display: flex;
 		gap: 40px;
+
+		@media screen and (max-width: 960px) {
+			flex-direction: column-reverse;
+			padding: 0;
+		}
 	}
 
 	&__text {
@@ -88,6 +93,10 @@ h3 {
 		font-style: normal;
 		font-weight: 300;
 		line-height: 130%;
+
+		@media screen and (max-width: 960px) {
+			width: 100%;
+		}
 	}
 
 	&__img {

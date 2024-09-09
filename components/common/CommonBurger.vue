@@ -11,7 +11,7 @@
 				<div class="overlay__content">
 					<CommonNavigation flexDirection="column" alignItems="flex-start" />
 				</div>
-				<CommonSubNavi :currentPage="currentPage" :items="pages" />
+				<CommonSubNavi :currentPage="currentPage || ''" :items="itemsLinks" />
 			</div>
 		</div>
 	</teleport>
@@ -21,26 +21,16 @@
 <script lang="ts" setup>
 import { useRoute } from '#imports'
 import { useRootStore } from '~/stores/root'
-import about from '~/utils/aboutItems'
-import architecture from '~/utils/architectureItems'
-import construction from '~/utils/constructionItems'
-import interiors from '~/utils/interiorsItems'
-import landscaping from '~/utils/landscapingItems'
+import { getPageParams } from '~/utils/func/getLinks'
 const route = useRoute()
-const currentPage = computed(() => route.matched[0].name?.toString() || '')
-const pages = computed((): Page[] => {
-	switch (currentPage.value) {
-		case 'landscaping':
-			return landscaping()
-		case 'architecture':
-			return architecture()
-		case 'construction':
-			return construction()
-		case 'interiors':
-			return interiors()
-		default:
-			return about()
-	}
+const currentPage = computed(() => {
+	return route.matched[0].name?.toString()
+})
+const store = useRootStore()
+
+const itemsLinks = computed(() => {
+	const list = store.serviceList
+	return getPageParams(list)
 })
 const root = useRootStore()
 </script>

@@ -39,12 +39,4 @@ const { item, getImg, strokeListConcat } = useStartData()
 // }
 </script>
 
-<style lang="scss">
-.service {
-	padding: 0;
-
-	&__content {
-		padding: 0 80px;
-	}
-}
-</style>
+<style lang="scss"></style>

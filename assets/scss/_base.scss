@@ -133,3 +133,24 @@ table {
 		padding: 60px 10px 0;
 	}
 }
+
+.wrapper {
+	display: flex;
+	justify-content: space-between;
+	gap: 20px;
+}
+.service {
+	padding: 0;
+
+	&__content {
+		padding: 80px;
+
+		@media screen and (max-width: 1200px) {
+			padding: 40px;
+		}
+
+		@media screen and (max-width: 640px) {
+			padding: 20px;
+		}
+	}
+}

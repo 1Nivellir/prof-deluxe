@@ -30,9 +30,4 @@ onMounted(async () => {
 // await useAsyncData('construction', async () => await store.getAllList('88'))
 </script>
 
-<style scoped lang="scss">
-.wrapper {
-	display: flex;
-	justify-content: space-between;
-}
-</style>
+<style scoped lang="scss"></style>

@@ -4,7 +4,7 @@ export const useRootStore = defineStore('root', () => {
 	const serviceList = ref<any>([])
 	const { $api } = useNuxtApp()
 	const useRepo = repositoryApi($api)
-
+	const isOverlay = ref(false)
 	const getAllList = async (id: string) => {
 		try {
 			const response = await useRepo.getServiceListById(id.toString())
@@ -17,5 +17,5 @@ export const useRootStore = defineStore('root', () => {
 	const getItemAtArray = (id: string) => {
 		return serviceList.value.find((item: any) => item.ID === id)
 	}
-	return { serviceList, getAllList, getItemAtArray }
+	return { serviceList, getAllList, getItemAtArray, isOverlay }
 })

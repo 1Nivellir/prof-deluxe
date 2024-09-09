@@ -27,9 +27,4 @@ onMounted(async () => {
 })
 </script>
 
-<style scoped lang="scss">
-.wrapper {
-	display: flex;
-	justify-content: space-between;
-}
-</style>
+<style scoped lang="scss"></style>

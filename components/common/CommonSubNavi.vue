@@ -4,17 +4,25 @@
 			<li class="aside__item" v-for="(item, index) in items" :key="index">
 				<NuxtLink
 					class="aside__link"
+					@click="handleClick"
 					:to="{
 						path: `/${currentPage}/${item.url}`,
 						query: {
 							id: item.id,
 						},
 					}"
-					:class="{
-						'aside__link--active':
-							route.fullPath === `${route.matched[0].path}/${item.url}`,
-					}"
-					>{{ item.label }}</NuxtLink
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="10"
+						height="17"
+						viewBox="0 0 10 17"
+						fill="none"
+						class="aside__link--arrow"
+					>
+						<path d="M1 -5.96046e-07V16H10" stroke="#AB9273" stroke-width="2" />
+					</svg>
+					{{ item.label }}</NuxtLink
 				>
 				<ul
 					class="aside__list aside__list--sub list-reset"
@@ -40,7 +48,11 @@
 
 <script lang="ts" setup>
 import type { Page } from '~/types/app'
+const root = useRootStore()
 
+const handleClick = () => {
+	root.isOverlay = false
+}
 const route = useRoute()
 interface Props {
 	items?: Page[]
@@ -61,8 +73,15 @@ defineProps<Props>()
 			padding: 24px 30px 0;
 		}
 	}
+
+	&__link--arrow {
+		flex-shrink: 0;
+	}
 	&__link {
 		position: relative;
+		display: flex;
+		gap: 7px;
+		align-items: center;
 		text-decoration: none;
 		cursor: pointer;
 		color: var(--c-white);
@@ -70,51 +89,6 @@ defineProps<Props>()
 		font-size: clamp(14px, 3vw, 28px);
 		font-weight: 400;
 		line-height: 120%;
-		padding-left: 20px;
-
-		&::after {
-			position: absolute;
-			content: '';
-			width: 1px;
-			height: 16px;
-			top: 10%;
-			left: 0;
-			background: var(--c-active);
-		}
-
-		&::before {
-			position: absolute;
-			content: '';
-			width: 9px;
-			height: 1px;
-			top: 55%;
-			left: 0;
-			background: var(--c-active);
-		}
-
-		&--active {
-			font-weight: 700;
-
-			&::after {
-				position: absolute;
-				content: '';
-				width: 2px;
-				height: 16px;
-				top: 10%;
-				left: 0;
-				background: var(--c-active);
-			}
-
-			&::before {
-				position: absolute;
-				content: '';
-				width: 9px;
-				height: 2px;
-				top: 55%;
-				left: 0;
-				background: var(--c-active);
-			}
-		}
 	}
 }
 </style>

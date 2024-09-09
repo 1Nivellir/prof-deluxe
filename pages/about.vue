@@ -27,8 +27,4 @@ const { data } = await useAsyncData('about', async () =>
 console.log(data.value)
 </script>
 
-<style scoped lang="scss">
-.wrapper {
-	display: flex;
-}
-</style>
+<style scoped lang="scss"></style>
