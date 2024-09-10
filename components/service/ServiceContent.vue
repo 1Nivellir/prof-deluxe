@@ -1,5 +1,29 @@
 <template>
 	<div class="service__wrapper">
+		<svg
+			class="service__decor-top"
+			xmlns="http://www.w3.org/2000/svg"
+			width="129"
+			height="129"
+			viewBox="0 0 129 129"
+			fill="none"
+		>
+			<path d="M129 1H1V129" stroke="#AB9273" stroke-width="2" />
+		</svg>
+		<svg
+			class="service__decor-bottom"
+			xmlns="http://www.w3.org/2000/svg"
+			width="129"
+			height="129"
+			viewBox="0 0 129 129"
+			fill="none"
+		>
+			<path
+				d="M-5.96046e-07 128H128V9.53674e-07"
+				stroke="#AB9273"
+				stroke-width="2"
+			/>
+		</svg>
 		<div class="service__text" v-html="parseText(DETAIL_TEXT)" ref="text"></div>
 		<div class="service__img">
 			<NuxtImg
@@ -75,14 +99,27 @@ h3 {
 }
 .service {
 	&__wrapper {
+		position: relative;
 		padding: 40px;
 		display: flex;
 		gap: 40px;
 
 		@media screen and (max-width: 960px) {
 			flex-direction: column-reverse;
-			padding: 0;
+			padding: 20px;
 		}
+	}
+
+	&__decor-top {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	&__decor-bottom {
+		position: absolute;
+		bottom: 0;
+		right: 0;
 	}
 
 	&__text {

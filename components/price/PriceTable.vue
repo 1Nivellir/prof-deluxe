@@ -18,6 +18,7 @@
 				v-for="(tr, index) in item.LINK_TOVAR"
 				:key="index"
 				class="table__row"
+				:class="{ 'table__row-active': index % 2 }"
 			>
 				<td class="table__td">{{ tr.NAME }}</td>
 				<td class="table__td">{{ tr.PRICE }}</td>
@@ -48,6 +49,10 @@ console.log(props.items)
 
 	&__row {
 		outline: 1px solid #ab9273;
+	}
+
+	&__row-active {
+		background-color: #252627;
 	}
 
 	&__body {

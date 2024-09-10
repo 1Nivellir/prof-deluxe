@@ -2,24 +2,26 @@
 	<section class="section__blogs">
 		<h1 class="title price__title">Прайс-лист</h1>
 		<div class="price__table">
-			<PriceTable :items="items" />
+			<PriceTable :items="itemsValue" />
 		</div>
 		<CommonForm />
 	</section>
 </template>
 
 <script lang="ts" setup>
-import { ProductService } from '~/utils/mock'
+const { $api } = useNuxtApp()
+const useRepo = repositoryApi($api)
 interface Props {
-	items: any
+	item: any
 }
 
-defineProps<Props>()
-onMounted(() => {
-	ProductService.getProductsMini().then((data) => (products.value = data))
-})
+const props = defineProps<Props>()
 
-const products = ref()
+const { data } = await useAsyncData('interiorsPrice', () =>
+	useRepo.getPriceList(props.item)
+)
+
+const itemsValue = computed(() => data.value.data.result)
 </script>
 
 <style lang="scss">
@@ -28,6 +30,12 @@ const products = ref()
 		text-align: left;
 		background: #ab9273;
 		font-size: 24px;
+	}
+
+	&__table {
+		@media screen and (max-width: 960px) {
+			overflow-x: auto;
+		}
 	}
 }
 </style>

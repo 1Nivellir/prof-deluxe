@@ -5,7 +5,7 @@
 			margin-bottom="28px"
 			current-page="landscaping"
 		/>
-		<NuxtPage :query="route.query.id" />
+		<NuxtPage />
 	</div>
 </template>
 

@@ -11,6 +11,11 @@
 							id: item.id,
 						},
 					}"
+					:class="{
+						'aside__link--active':
+							route.fullPath ===
+							`${route.matched[0].path}/${item.url}?id=${item.id}`,
+					}"
 				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -20,27 +25,44 @@
 						fill="none"
 						class="aside__link--arrow"
 					>
-						<path d="M1 -5.96046e-07V16H10" stroke="#AB9273" stroke-width="2" />
+						<path
+							d="M1 -5.96046e-07V16H10"
+							stroke="#AB9273"
+							:stroke-width="
+								route.fullPath ===
+								`${route.matched[0].path}/${item.url}?id=${item.id}`
+									? 2
+									: 1
+							"
+						/>
 					</svg>
 					{{ item.label }}</NuxtLink
 				>
-				<ul
-					class="aside__list aside__list--sub list-reset"
-					v-if="item.children"
+			</li>
+			<li class="aside__item" @click="handleClick">
+				<NuxtLink
+					v-if="!route.path.includes('about')"
+					class="aside__link"
+					@click="handleClick"
+					:to="{
+						path: `/${currentPage}/pricelist`,
+						query: {
+							id: '90',
+						},
+					}"
 				>
-					<li v-for="(subItem, subIndex) in item.children" :key="subIndex">
-						<NuxtLink
-							class="aside__link"
-							:to="`/${currentPage}/${subItem.url}`"
-							:class="{
-								'aside__link--active':
-									route.fullPath === `${route.matched[0].path}/${subItem.url}`,
-							}"
-						>
-							{{ subItem.label }}
-						</NuxtLink>
-					</li>
-				</ul>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="10"
+						height="17"
+						viewBox="0 0 10 17"
+						fill="none"
+						class="aside__link--arrow"
+					>
+						<path d="M1 -5.96046e-07V16H10" stroke="#AB9273" />
+					</svg>
+					Прайс-лист</NuxtLink
+				>
 			</li>
 		</ul>
 	</nav>
@@ -53,6 +75,7 @@ const root = useRootStore()
 const handleClick = () => {
 	root.isOverlay = false
 }
+
 const route = useRoute()
 interface Props {
 	items?: Page[]
@@ -90,5 +113,9 @@ defineProps<Props>()
 		font-weight: 400;
 		line-height: 120%;
 	}
+}
+
+.aside__link--active {
+	font-weight: 700;
 }
 </style>

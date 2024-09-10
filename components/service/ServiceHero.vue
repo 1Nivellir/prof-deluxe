@@ -29,7 +29,6 @@ const parcer = (text: string) => {
 	const doc = parser.parseFromString(text, 'text/html')
 	Array.from(doc.body.childNodes).forEach((node) => {
 		if (node.nodeType === Node.ELEMENT_NODE && node instanceof HTMLElement) {
-			console.log(node.tagName)
 			if (node.tagName.toLowerCase() === 'blockquote') {
 				const title = document.createElement('h3')
 				title.textContent = node.textContent || ''

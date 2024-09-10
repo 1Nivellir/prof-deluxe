@@ -1,29 +1,32 @@
 <template>
-	<section class="section__blogs service">
-		<div
-			class="service__wrapper"
-			:style="{ backgroundImage: `url(${getImg(item)})` }"
-		>
-			<ServiceHero :NAME="item.NAME" :PREVIEW_TEXT="item.PREVIEW_TEXT" />
-		</div>
-		<ServiceMarquee :list="strokeListConcat" />
-		<div class="service__content">
-			<ImagesList :images="item.PHOTOGALLERY" />
-			<ServiceContent
-				:DETAIL_TEXT="item.DETAIL_TEXT"
-				:DETAIL_PICTURE="item.DETAIL_PICTURE"
-			/>
-			<CommonForm />
-		</div>
+	<section
+		class="section__blogs service"
+		v-if="!route.path.includes('pricelist')"
+	>
+		<CommonContent
+			:item="newItem"
+			:stroke-list-concat="newStrokeListConcat"
+			:get-img="newGetImg"
+		/>
 	</section>
-	<!-- <PricePage
-		v-if="route.path.includes('pricelist')"
-		:items="data.data.result"
-	/> -->
+	<PricePage v-if="route.path.includes('pricelist')" item="92" />
 </template>
 
 <script lang="ts" setup>
-const { item, getImg, strokeListConcat } = useStartData()
+const newItem = ref()
+const newGetImg = ref()
+const newStrokeListConcat = ref()
+const store = useRootStore()
+const route = useRoute()
+const { $setIdAndFetch } = useNuxtApp()
+await($setIdAndFetch as any)('88')
+
+if (!route.path.includes('pricelist')) {
+	const { item, getImg, strokeListConcat } = useStartData()
+	newItem.value = item.value
+	newGetImg.value = getImg
+	newStrokeListConcat.value = strokeListConcat.value
+}
 </script>
 
 <style lang="scss"></style>

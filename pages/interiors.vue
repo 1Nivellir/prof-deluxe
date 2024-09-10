@@ -5,7 +5,7 @@
 			margin-bottom="28px"
 			current-page="interiors"
 		/>
-		<NuxtPage :query="route.query.id" />
+		<NuxtPage />
 	</div>
 </template>
 

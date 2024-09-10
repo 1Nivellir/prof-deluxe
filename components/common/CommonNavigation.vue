@@ -14,6 +14,18 @@
 					{{ item.label }}
 					<span></span><span></span><span></span><span></span>
 				</NuxtLink>
+				<div
+					class="header__sub"
+					v-if="
+						`/${currentPage}` === item.url &&
+						$viewport.isLessThan('mobileMedium')
+					"
+				>
+					<CommonSubNavi
+						:items="itemSubNuv"
+						:current-page="currentPage || ''"
+					/>
+				</div>
 			</li>
 		</ul>
 	</nav>
@@ -21,11 +33,14 @@
 
 <script lang="ts" setup>
 import { useRoute } from '#imports'
+
 import menuItems from '~/utils/menuItems'
 const route = useRoute()
 interface Props {
 	flexDirection?: string
 	alignItems?: string
+	itemSubNuv?: any
+	currentPage?: string
 }
 withDefaults(defineProps<Props>(), {
 	flexDirection: 'row',
@@ -46,6 +61,9 @@ withDefaults(defineProps<Props>(), {
 		text-transform: uppercase;
 	}
 
+	&__sub {
+		padding: 20px;
+	}
 	&__nav {
 		margin-right: 35px;
 	}
