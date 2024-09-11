@@ -34,13 +34,6 @@ export default defineNuxtConfig({
 					mobileMedium: 480,
 					mobile: 320,
 				},
-				cookie: {
-					expires: 365,
-					name: 'viewport',
-					path: '/',
-					sameSite: 'Strict',
-					secure: true,
-				},
 			},
 		],
 		'nuxt-marquee',

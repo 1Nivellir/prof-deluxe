@@ -2,15 +2,15 @@ body {
 	position: relative;
 	font-family: 'Akrobat', sans-serif;
 	background: var(--c-bg);
-	overflow-y: scroll;
 }
 
 * {
-	border: red;
+	border: 1px red;
 }
 .container {
 	margin: 0 auto;
 	max-width: 1920px;
+	width: 100%;
 	padding: 0 50px;
 
 	@media screen and (max-width: 1024px) {
@@ -54,6 +54,7 @@ table {
 	border-spacing: 0;
 }
 .section__blogs {
+	overflow: hidden;
 	max-width: 1470px;
 	background-color: var(--c-dark-bg);
 	padding: 100px 80px 0;
@@ -115,7 +116,6 @@ table {
 
 .service__wrapper {
 	padding: 100px 80px 0;
-	width: 100%;
 	min-height: 738px;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -138,6 +138,7 @@ table {
 	display: flex;
 	justify-content: space-between;
 	gap: 20px;
+	padding-right: 0;
 }
 .service {
 	padding: 0;

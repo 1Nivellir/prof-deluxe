@@ -19,7 +19,7 @@ export const repositoryApi = <T>(fetch: $Fetch<T, NitroFetchRequest>) => ({
 			`/api/api/profdeluxe/price?type=getList&params[pageSize]=10&params[pageNum]=1&params[section]=${id}`
 		)
 	},
-	async getContacts(): Promise<Res[]> {
+	async getContacts(): Promise<any> {
 		return fetch<Res[]>('/api/api/profdeluxe/contact?type=getList')
 	},
 

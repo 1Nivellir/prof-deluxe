@@ -108,7 +108,7 @@ defineProps<Props>()
 		text-decoration: none;
 		cursor: pointer;
 		color: var(--c-white);
-		font-family: Akrobat;
+		font-family: 'Roberto Sans';
 		font-size: clamp(14px, 3vw, 28px);
 		font-weight: 400;
 		line-height: 120%;
@@ -116,6 +116,6 @@ defineProps<Props>()
 }
 
 .aside__link--active {
-	font-weight: 700;
+	font-weight: 500;
 }
 </style>

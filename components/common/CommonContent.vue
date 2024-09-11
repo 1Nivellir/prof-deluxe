@@ -5,9 +5,14 @@
 	>
 		<ServiceHero :NAME="item.NAME" :PREVIEW_TEXT="item.PREVIEW_TEXT" />
 	</div>
-	<ServiceMarquee :list="strokeListConcat" />
+	<div class="service__marquee">
+		<ServiceMarquee :list="strokeListConcat" />
+	</div>
 	<div class="service__content">
-		<ImagesList :images="item.PHOTOGALLERY" v-if="item.PHOTOGALLERY" />
+		<ImagesList
+			:images="item.PHOTOGALLERY"
+			v-if="item.PHOTOGALLERY.length > 0"
+		/>
 		<ServiceContent
 			v-if="item.DETAIL_TEXT"
 			:DETAIL_TEXT="item.DETAIL_TEXT"
@@ -28,4 +33,8 @@ const props = defineProps<Props>()
 console.log(props)
 </script>
 
-<style></style>
+<style scoped lang="scss">
+.service__marquee {
+	overflow: hidden;
+}
+</style>

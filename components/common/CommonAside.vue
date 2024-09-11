@@ -19,7 +19,6 @@ interface Props {
 }
 withDefaults(defineProps<Props>(), {
 	marginBottom: 'auto',
-	paddingLeft: '50px',
 })
 </script>
 
@@ -31,7 +30,6 @@ withDefaults(defineProps<Props>(), {
 	margin-bottom: v-bind(marginBottom);
 
 	&__wrapper {
-		width: 24%;
 		display: flex;
 		padding-left: v-bind(paddingLeft);
 		flex-direction: column;

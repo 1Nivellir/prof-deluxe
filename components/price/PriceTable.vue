@@ -3,7 +3,7 @@
 		<thead class="table__head-wrapper">
 			<tr>
 				<th class="table__head" v-for="(item, index) in head" :key="index">
-					<h3>{{ item }}</h3>
+					<h3 class="table__head-title">{{ item }}</h3>
 				</th>
 			</tr>
 		</thead>
@@ -12,7 +12,9 @@
 				<td colspan="4" style="height: 40px"></td>
 			</tr>
 			<tr class="table__row">
-				<h3 class="table__subtitle">{{ item.NAME }}</h3>
+				<td colspan="4" class="table__td-title">
+					<h3 class="table__subtitle">{{ item.NAME }}</h3>
+				</td>
 			</tr>
 			<tr
 				v-for="(tr, index) in item.LINK_TOVAR"
@@ -59,19 +61,6 @@ console.log(props.items)
 		position: relative;
 		z-index: 10;
 		overflow: hidden;
-
-		// &::before {
-		// 	z-index: 9;
-		// 	content: '';
-		// 	bottom: -13px;
-		// 	width: 100%;
-		// 	height: 50px;
-		// 	transform: rotate(-45deg);
-		// 	right: -39px;
-		// 	position: absolute;
-		// 	background: var(--c-dark-bg);
-		// 	border-top: 1px solid #ab9273;
-		// }
 	}
 
 	&__head-wrapper {
@@ -103,26 +92,57 @@ console.log(props.items)
 	&__subtitle {
 		padding: 15px 60px;
 		color: #ab9273;
+		position: relative;
 		font-family: 'Roberto Sans';
-		font-size: 24px;
+		font-size: clamp(18px, 4vw, 24px);
 		font-style: normal;
 		font-weight: 500;
 		line-height: 130%;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: -1px;
+			left: -1px;
+			width: 62px;
+			height: 100%;
+			background-image: url('/svg/bgrow.svg');
+			background-repeat: no-repeat;
+			background-size: contain;
+		}
 	}
 
 	&__head {
-		text-align: left;
 		padding: 20px;
-		color: #fff;
-		font-family: 'Roberto Sans';
-		font-size: 24px;
-		font-style: normal;
-		font-weight: 500;
-		line-height: 130%;
 
 		&:not(:last-child) {
 			border-right: 1px solid white;
 		}
+	}
+
+	&__row-head {
+		position: relative;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 54px;
+			height: 100%;
+			background-image: url('/svg/bgrow.svg');
+			background-repeat: no-repeat;
+			background-size: contain;
+		}
+	}
+	&__head-title {
+		text-align: left;
+		color: #fff;
+		font-family: 'Roberto Sans';
+		font-size: clamp(18px, 4vw, 24px);
+		font-style: normal;
+		font-weight: 500;
+		line-height: 130%;
 	}
 }
 </style>

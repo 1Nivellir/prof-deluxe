@@ -1,5 +1,5 @@
 <template>
-	<div class="wrapper">
+	<div class="wrapper container">
 		<CommonAside
 			:items="itemsLinks"
 			margin-bottom="28px"

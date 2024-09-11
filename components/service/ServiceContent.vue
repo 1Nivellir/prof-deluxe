@@ -88,13 +88,11 @@ onMounted(() => {
 <style lang="scss" scoped>
 h3 {
 	color: #fff;
-
-	/* ПК/Заголовок Н2 */
 	font-family: Akrobat;
 	font-size: 46px;
 	font-style: normal;
 	font-weight: 400;
-	line-height: 110%; /* 50.6px */
+	line-height: 110%;
 	text-transform: uppercase;
 }
 .service {
@@ -110,6 +108,9 @@ h3 {
 		}
 	}
 
+	&__image {
+		width: 100%;
+	}
 	&__decor-top {
 		position: absolute;
 		top: 0;
@@ -138,9 +139,6 @@ h3 {
 
 	&__img {
 		flex-grow: 1;
-	}
-	&__image {
-		width: 100%;
 	}
 }
 </style>

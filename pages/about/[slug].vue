@@ -1,11 +1,15 @@
 <template>
 	<section class="section__blogs">
-		<h1 class="blog__title title">Блог: {{ route.params.slug }}</h1>
+		<h1 class="blog__title title" v-if="!route.path.includes('contacts')">
+			Блог: {{ route.params.slug }}
+		</h1>
 		<BlogList
 			:list-items="items"
 			gridColumns="repeat(3, 1fr)"
 			minHeight="410px"
+			v-if="!route.path.includes('contacts')"
 		/>
+		<BlogContacts v-if="route.path.includes('contacts')" />
 		<CommonForm />
 	</section>
 </template>
