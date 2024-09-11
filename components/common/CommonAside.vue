@@ -24,12 +24,12 @@ withDefaults(defineProps<Props>(), {
 
 <style scoped lang="scss">
 .aside {
-	width: 100%;
 	padding-top: 104px;
 	background: var(--c-bg);
 	margin-bottom: v-bind(marginBottom);
 
 	&__wrapper {
+		width: 24%;
 		display: flex;
 		padding-left: v-bind(paddingLeft);
 		flex-direction: column;
