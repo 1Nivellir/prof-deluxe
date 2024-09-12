@@ -4,35 +4,23 @@
 			v-for="(item, index) in items"
 			:key="index"
 			:item="item.item"
-			:url="item.url"
-			:title="item.title"
+			:url="item.ID"
+			:title="item.NAME"
 		/>
 	</ul>
 </template>
 
 <script lang="ts" setup>
-const items = [
-	{
-		item: 1,
-		url: '1',
-		title: 'Интерьеры',
-	},
-	{
-		item: 2,
-		url: '2',
-		title: 'Ремонт',
-	},
-	{
-		item: 3,
-		url: '3',
-		title: 'Декор',
-	},
-	{
-		item: 4,
-		url: '4',
-		title: 'Ландшафт',
-	},
-]
+const route = useRoute()
+const { $api } = useNuxtApp()
+const useRepo = repositoryApi($api)
+
+const { data } = await useAsyncData('blog', () =>
+	useRepo.getBlogItems(route.query.id as string)
+)
+
+const items = computed(() => data.value.data.result)
+console.log(data.value.data.result)
 interface Props {
 	gridColumns?: string
 }

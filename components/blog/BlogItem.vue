@@ -1,6 +1,6 @@
 <template>
 	<li class="blog__item">
-		<NuxtLink to="/about/blog/1" class="blog__link" />
+		<NuxtLink :to="`/about/blog/${url}`" class="blog__link" />
 		<NuxtImg format="avif,webp,jpeg" :src="`/img/test.jpg`" class="blog__img" />
 		<h3 class="blog__title">
 			{{ title }}
@@ -11,7 +11,6 @@
 <script lang="ts" setup>
 interface Props {
 	minHeight?: string
-	item: number
 	url: string
 	title?: string
 }

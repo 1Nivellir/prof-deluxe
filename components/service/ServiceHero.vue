@@ -1,11 +1,5 @@
 <template>
 	<section class="service">
-		<NuxtImg
-			:src="`/api${PREVIEW_PICTURE}`"
-			alt=""
-			class="service__img"
-			provider="none"
-		/>
 		<!-- <NuxtImg :src="" /> -->
 		<h1 class="service__title title">
 			{{ NAME }}

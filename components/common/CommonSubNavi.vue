@@ -38,6 +38,46 @@
 					</svg>
 					{{ item.label }}</NuxtLink
 				>
+				<ul
+					class="aside__list aside__list--sub list-reset"
+					v-if="item.children"
+				>
+					<li v-for="(subItem, subIndex) in item.children" :key="subIndex">
+						<NuxtLink
+							class="aside__link"
+							:to="{
+								path: `/${currentPage}/${subItem.url}`,
+								query: {
+									id: subItem.section,
+								},
+							}"
+							:class="{
+								'aside__link--active':
+									route.fullPath === `${route.matched[0].path}/${subItem.url}`,
+							}"
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="10"
+								height="17"
+								viewBox="0 0 10 17"
+								fill="none"
+								class="aside__link--arrow"
+							>
+								<path
+									d="M1 -5.96046e-07V16H10"
+									stroke="#AB9273"
+									:stroke-width="
+										route.fullPath === `${route.matched[0].path}/${subItem.url}`
+											? 2
+											: 1
+									"
+								/>
+							</svg>
+							{{ subItem.label }}
+						</NuxtLink>
+					</li>
+				</ul>
 			</li>
 			<li class="aside__item" @click="handleClick">
 				<NuxtLink

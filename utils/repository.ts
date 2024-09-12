@@ -32,4 +32,10 @@ export const repositoryApi = <T>(fetch: $Fetch<T, NitroFetchRequest>) => ({
 			`/api/api/profdeluxe/service?type=getList&params[pageSize]=10&params[pageNum]=1&params[section]=${id}`
 		)
 	},
+
+	async getBlogItems(id: string): Promise<any> {
+		return fetch<Res[]>(
+			`/api/api/profdeluxe/blog?type=getList&params[pageSize]=10&params[pageNum]=1&params[section]=${id}`
+		)
+	},
 })

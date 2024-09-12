@@ -23,8 +23,12 @@ onMounted(() => {
 const { data } = await useAsyncData('about', async () =>
 	useRepo.getServiceList()
 )
-
-console.log(data.value)
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.container {
+	@media screen and (max-width: 1200px) {
+		padding: 0;
+	}
+}
+</style>

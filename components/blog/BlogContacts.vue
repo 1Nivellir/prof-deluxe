@@ -86,6 +86,7 @@
 			</ul>
 		</div>
 	</div>
+	<CommonForm />
 </template>
 
 <script lang="ts" setup>
