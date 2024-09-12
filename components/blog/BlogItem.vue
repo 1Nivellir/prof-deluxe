@@ -1,6 +1,6 @@
 <template>
 	<li class="blog__item">
-		<NuxtLink :to="`/about/blog/${url}`" class="blog__link" />
+		<NuxtLink :to="url" class="blog__link" />
 		<NuxtImg format="avif,webp,jpeg" :src="`/img/test.jpg`" class="blog__img" />
 		<h3 class="blog__title">
 			{{ title }}

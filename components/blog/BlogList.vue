@@ -4,7 +4,7 @@
 			v-for="(item, index) in items"
 			:key="index"
 			:item="item.item"
-			:url="item.ID"
+			:url="`/about/blog/${item.ID}`"
 			:title="item.NAME"
 		/>
 	</ul>
