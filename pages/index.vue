@@ -19,10 +19,10 @@
 </template>
 
 <script lang="ts" setup>
-const { $api } = useNuxtApp()
-const useApi = repositoryApi($api)
-
-const { data } = await useAsyncData('home', () => useApi.getServiceList())
+const route = useRoute()
+onMounted(() => {
+	console.log(route)
+})
 </script>
 
 <style scoped lang="scss">

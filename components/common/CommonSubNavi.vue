@@ -85,7 +85,7 @@
 			</li>
 			<li class="aside__item" @click="handleClick">
 				<NuxtLink
-					v-if="!route.path.includes('about')"
+					v-if="!route.path.includes('about') && route.name !== 'index'"
 					class="aside__link"
 					@click="handleClick"
 					:to="{
@@ -119,13 +119,12 @@ const route = useRoute()
 const handleClick = () => {
 	root.isOverlay = false
 }
-
 interface Props {
 	items?: Page[]
 	currentPage: string
 }
 
-const props = defineProps<Props>()
+defineProps<Props>()
 </script>
 
 <style scoped lang="scss">
