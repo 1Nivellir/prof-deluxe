@@ -31,10 +31,10 @@
 <script lang="ts" setup>
 import { useRoute } from '#imports'
 import { useRootStore } from '~/stores/root'
+import menuItems from '~/utils/aboutItems'
 import { getPageParams } from '~/utils/func/getLinks'
 const route = useRoute()
 const currentPage = computed(() => {
-	console.log(route.matched[0].name?.toString())
 	return route.matched[0].name?.toString()
 })
 const store = useRootStore()
@@ -43,6 +43,15 @@ const itemsLinks = computed(() => {
 	const list = store.serviceList
 	return getPageParams(list)
 })
+
+watch(
+	() => route.fullPath,
+	(newValue) => {
+		if (newValue.includes('about')) {
+			store.changeServiceList(menuItems())
+		}
+	}
+)
 </script>
 
 <style scoped lang="scss">

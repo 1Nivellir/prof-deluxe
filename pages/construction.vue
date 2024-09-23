@@ -25,10 +25,6 @@ onMounted(async () => {
 		`/construction/${store.serviceList[0].CODE}?id=${store.serviceList[0].ID}`
 	)
 })
-
-onUnmounted(() => {
-	console.log('object')
-})
 </script>
 
 <style scoped lang="scss"></style>

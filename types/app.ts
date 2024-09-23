@@ -1,7 +1,9 @@
 export interface Page {
+	NAME?: string
 	id?: string
-	label: string
-	url: string
+	CODE?: string
+	label?: string
+	url?: string
 	section?: string
 	children?: Page[]
 }

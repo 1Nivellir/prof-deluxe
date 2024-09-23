@@ -23,8 +23,6 @@ const { $api } = useNuxtApp()
 const useApi = repositoryApi($api)
 
 const { data } = await useAsyncData('home', () => useApi.getServiceList())
-
-console.log(data.value)
 </script>
 
 <style scoped lang="scss">

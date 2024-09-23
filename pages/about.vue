@@ -1,7 +1,7 @@
 <template>
 	<div class="wrapper container">
 		<CommonAside
-			:items="pageItems()"
+			:items="getPageParams(pageItems())"
 			margin-bottom="28px"
 			current-page="about"
 		/>
@@ -11,10 +11,10 @@
 
 <script lang="ts" setup>
 import pageItems from '~/utils/aboutItems'
+import { getPageParams } from '~/utils/func/getLinks'
 const route = useRoute()
 const { $api } = useNuxtApp()
 const useRepo = repositoryApi($api)
-console.log(route)
 onMounted(() => {
 	if (route.matched.length > 1) return
 	navigateTo(`/about/${pageItems()[0].url}`)

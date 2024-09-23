@@ -39,9 +39,7 @@ interface Props {
 	items: any
 }
 
-const props = defineProps<Props>()
-
-console.log(props.items)
+defineProps<Props>()
 </script>
 
 <style lang="scss">

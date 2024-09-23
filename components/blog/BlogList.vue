@@ -20,7 +20,6 @@ const { data } = await useAsyncData('blog', () =>
 )
 
 const items = computed(() => data.value.data.result)
-console.log(data.value.data.result)
 interface Props {
 	gridColumns?: string
 }

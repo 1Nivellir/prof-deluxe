@@ -17,5 +17,15 @@ export const useRootStore = defineStore('root', () => {
 	const getItemAtArray = (id: string) => {
 		return serviceList.value.find((item: any) => item.ID === id)
 	}
-	return { serviceList, getAllList, getItemAtArray, isOverlay }
+
+	const changeServiceList = (list: any) => {
+		serviceList.value = list
+	}
+	return {
+		serviceList,
+		getAllList,
+		getItemAtArray,
+		isOverlay,
+		changeServiceList,
+	}
 })
