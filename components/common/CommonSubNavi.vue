@@ -1,7 +1,7 @@
 <template>
 	<nav class="aside__nav" v-if="items">
 		<ul class="aside__list list-reset">
-			<li class="aside__item" v-for="(item, index) in items" :key="index">
+			<li class="aside__item" v-for="(item, index) in itemsRef" :key="index">
 				<NuxtLink
 					class="aside__link"
 					@click="handleClick"
@@ -110,19 +110,30 @@
 
 <script lang="ts" setup>
 import type { Page } from '~/types/app'
+import menuItems from '~/utils/aboutItems'
 const root = useRootStore()
-
+const route = useRoute()
 const handleClick = () => {
 	root.isOverlay = false
 }
 
-const route = useRoute()
 interface Props {
 	items?: Page[]
 	currentPage: string
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
+const itemsRef = ref(props.items)
+watch(
+	() => route.name,
+	(newValue) => {
+		if (newValue === 'about-slug') {
+			itemsRef.value = menuItems()
+		} else {
+			itemsRef.value = props.items
+		}
+	}
+)
 </script>
 
 <style scoped lang="scss">

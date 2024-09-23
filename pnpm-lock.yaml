@@ -14,6 +14,9 @@ importers:
       '@primevue/themes':
         specifier: ^4.0.4
         version: 4.0.4
+      embla-carousel-vue:
+        specifier: ^8.3.0
+        version: 8.3.0(vue@3.4.37(typescript@5.5.4))
       nuxt:
         specifier: ^3.12.4
         version: 3.12.4(@parcel/watcher@2.4.1)(@types/node@22.2.0)(eslint@9.9.0(jiti@1.21.6))(ioredis@5.4.1)(less@2.7.3)(magicast@0.3.4)(optionator@0.9.4)(rollup@4.20.0)(sass@1.77.8)(terser@5.31.6)(typescript@5.5.4)(vite@5.4.0(@types/node@22.2.0)(less@2.7.3)(sass@1.77.8)(terser@5.31.6))
@@ -42,6 +45,9 @@ importers:
       '@primevue/nuxt-module':
         specifier: ^4.0.4
         version: 4.0.4(@babel/parser@7.25.3)(magicast@0.3.4)(rollup@4.20.0)(vue@3.4.37(typescript@5.5.4))
+      embla-carousel:
+        specifier: ^8.3.0
+        version: 8.3.0
       sass:
         specifier: ^1.77.8
         version: 1.77.8
@@ -2333,6 +2339,19 @@ packages:
 
   electron-to-chromium@1.5.6:
     resolution: {integrity: sha512-jwXWsM5RPf6j9dPYzaorcBSUg6AiqocPEyMpkchkvntaH9HGfOOMZwxMJjDY/XEs3T5dM7uyH1VhRMkqUU9qVw==}
+
+  embla-carousel-reactive-utils@8.3.0:
+    resolution: {integrity: sha512-EYdhhJ302SC4Lmkx8GRsp0sjUhEN4WyFXPOk0kGu9OXZSRMmcBlRgTvHcq8eKJE1bXWBsOi1T83B+BSSVZSmwQ==}
+    peerDependencies:
+      embla-carousel: 8.3.0
+
+  embla-carousel-vue@8.3.0:
+    resolution: {integrity: sha512-K8ghzWZ9Th2Czvy9dVaz6ItgvFdkI3wHQe6HgeHmvmOlkvhu/fNz83uHrLWVAsjztu/b+yiFk9zvXb0+IQ2mPw==}
+    peerDependencies:
+      vue: ^3.2.37
+
+  embla-carousel@8.3.0:
+    resolution: {integrity: sha512-Ve8dhI4w28qBqR8J+aMtv7rLK89r1ZA5HocwFz6uMB/i5EiC7bGI7y+AM80yAVUJw3qqaZYK7clmZMUR8kM3UA==}
 
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -8315,6 +8334,18 @@ snapshots:
   ee-first@1.1.1: {}
 
   electron-to-chromium@1.5.6: {}
+
+  embla-carousel-reactive-utils@8.3.0(embla-carousel@8.3.0):
+    dependencies:
+      embla-carousel: 8.3.0
+
+  embla-carousel-vue@8.3.0(vue@3.4.37(typescript@5.5.4)):
+    dependencies:
+      embla-carousel: 8.3.0
+      embla-carousel-reactive-utils: 8.3.0(embla-carousel@8.3.0)
+      vue: 3.4.37(typescript@5.5.4)
+
+  embla-carousel@8.3.0: {}
 
   emoji-regex@8.0.0: {}
 

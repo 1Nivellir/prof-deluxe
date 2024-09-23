@@ -2,7 +2,11 @@
 	<section class="section__blogs service">
 		<div
 			class="service__wrapper"
-			v-if="!route.path.includes('contacts') && !route.path.includes('company')"
+			v-if="
+				!route.path.includes('contacts') &&
+				!route.path.includes('company') &&
+				!route.path.includes('partners')
+			"
 		>
 			<BlogList
 				:list-items="items"
@@ -11,6 +15,7 @@
 			/>
 		</div>
 		<ServiceAbout v-if="route.path.includes('company')" />
+		<ServicePartners v-if="route.path.includes('partners')" />
 		<div class="service__wrapper" v-if="route.path.includes('contacts')">
 			<BlogContacts />
 		</div>
